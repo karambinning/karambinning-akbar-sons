@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akbar &amp; Sons · Corner Shop on Strutt Street · Normanton, Derby DE23</title>
+<meta name="description" content="Akbar &amp; Sons. A family-run corner shop on Strutt Street in Normanton, Derby — DE23 8FF. Groceries and everyday essentials.">
+<meta name="theme-color" content="#F2E8D1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @property --grad-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+
+  :root{
+    --paper:#F2E8D1;
+    --paper-2:#E8DBB6;
+    --ink:#2A1A0F;
+    --ink-2:#3A2418;
+    --ink-soft:#5C4537;
+    --clay:#B85C2C;
+    --clay-2:#C77C42;
+    --ember:#8E3B22;
+    --brass:#A88C4A;
+    --mute:#806C58;
+    --display:"Libre Baskerville",Georgia,"Times New Roman",serif;
+    --body:"Work Sans",ui-sans-serif,system-ui,sans-serif;
+    --rhythm:clamp(1rem,.72rem + .55vw,1.13rem);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:var(--rhythm);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--clay);color:var(--paper)}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;margin:0;text-wrap:balance}
+  p{text-wrap:pretty;hyphens:auto;margin:0 0 1em}
+  a{color:inherit;text-decoration:none;transition:color .2s ease}
+  a:hover{color:var(--clay)}
+  img,svg{display:block;max-width:100%}
+
+  /* paper grain — fixed overlay so it carries across slabs */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .42 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.5'/></svg>");
+    mix-blend-mode:multiply;
+    opacity:.14;
+    z-index:9999;
+  }
+
+  /* top hairline */
+  .hairline{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.7rem;
+    padding:1.15rem clamp(1.25rem,4vw,3rem) 0;
+    font-family:var(--body);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-soft);font-weight:500;
+  }
+  .hairline .post{color:var(--ember)}
+  .hairline .mark{font-family:var(--display);font-style:italic;font-weight:400;text-transform:none;letter-spacing:.01em;color:var(--ink);font-size:.92rem}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:clamp(1.6rem,4vw,3rem) clamp(1.25rem,4vw,3rem) clamp(2.6rem,5vw,4.5rem);
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(2rem,4vw,3rem);
+    align-items:end;
+  }
+  @media (min-width:60rem){
+    .hero{grid-template-columns:1.75fr 1fr;}
+  }
+
+  .est{
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:.93rem;color:var(--ink-soft);letter-spacing:.02em;
+    margin-bottom:1.5rem;
+    display:flex;align-items:center;gap:.85rem;
+  }
+  .est::before{content:"";display:inline-block;width:2.4rem;height:1px;background:var(--ink-soft)}
+
+  .wordmark{
+    font-family:var(--display);font-weight:700;
+    line-height:.84;letter-spacing:-.02em;
+    color:var(--ink);
+    font-size:clamp(4.4rem,17vw,15rem);
+    text-wrap:balance;
+  }
+  .wordmark .row-1{display:block}
+  .wordmark .row-2{display:flex;align-items:flex-end;gap:.02em;margin-top:-.02em;flex-wrap:nowrap}
+  .amp{
+    position:relative;
+    display:inline-block;
+    font-style:italic;font-weight:400;
+    color:var(--clay);
+    font-size:1.55em;
+    line-height:.78;
+    margin-right:.06em;
+    transform:translateY(.08em);
+  }
+  .amp::before{
+    content:"";
+    position:absolute;
+    inset:-.22em -.28em -.06em -.28em;
+    background:conic-gradient(from var(--grad-angle), transparent 0deg, rgba(199,124,66,.22) 60deg, transparent 140deg, rgba(142,59,34,.18) 230deg, transparent 320deg);
+    z-index:-1;
+    border-radius:50%;
+    filter:blur(28px);
+    animation:spin 22s linear infinite;
+  }
+  @keyframes spin{to{--grad-angle:360deg}}
+  .amp::after{
+    content:"";
+    position:absolute;
+    left:28%;right:28%;bottom:-.02em;
+    height:2px;background:var(--clay);
+    transform:scaleX(0);transform-origin:left;
+    animation:tick 2.6s 1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes tick{to{transform:scaleX(1)}}
+
+  /* the printed letterhead block on the right */
+  .letterhead{
+    border-top:1.5px solid var(--ink);
+    padding-top:1.1rem;
+    margin:0;
+    display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.4rem;
+    align-self:end;
+    align-items:baseline;
+  }
+  .letterhead dt{
+    color:var(--mute);font-weight:500;letter-spacing:.16em;
+    font-size:.66rem;text-transform:uppercase;
+    font-family:var(--body);
+    padding-top:.32em;
+  }
+  .letterhead dd{
+    margin:0;
+    font-family:var(--display);font-weight:400;
+    font-size:1rem;letter-spacing:.005em;color:var(--ink);
+  }
+  .letterhead .postcode{
+    font-family:var(--body);font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;font-size:.93rem;color:var(--ember);
+  }
+
+  /* MARQUEE */
+  .marquee{
+    overflow:hidden;
+    background:var(--ink);color:var(--paper);
+    --speed:62s;
+    padding:1.15rem 0;
+    border-block:1px solid var(--ink);
+  }
+  .marquee__track{
+    display:inline-flex;gap:0;white-space:nowrap;will-change:transform;
+    animation:scroll var(--speed) linear infinite;
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(1.05rem,1.7vw,1.4rem);
+    letter-spacing:.01em;
+  }
+  .marquee__track span.set{display:inline-flex;align-items:center;gap:2.6rem;padding-right:2.6rem}
+  .marquee__track .dot{width:.36rem;height:.36rem;border-radius:50%;background:var(--clay);display:inline-block}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* EDITORIAL */
+  .ed{
+    padding:clamp(3rem,7vw,6rem) clamp(1.25rem,4vw,3rem);
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(1.8rem,4vw,3.2rem);
+    max-width:80rem;margin:0 auto;
+  }
+  @media (min-width:60rem){
+    .ed{grid-template-columns:1fr 1.7fr;align-items:start;gap:clamp(3rem,6vw,5rem)}
+  }
+  .ed h2{
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(1.7rem,2.4vw,2.3rem);
+    color:var(--ember);line-height:1.05;
+    max-width:14rem;
+    position:relative;
+  }
+  .ed h2::after{content:"";display:block;width:3rem;height:1px;background:var(--ember);margin-top:1.2rem;opacity:.5}
+  .ed-body{max-width:42rem}
+  .ed-body .lede{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(1.25rem,1.85vw,1.55rem);
+    line-height:1.5;color:var(--ink);
+    margin-bottom:1.6rem;
+  }
+  .ed-body .lede::first-letter{
+    font-family:var(--display);font-weight:700;
+    font-size:3.8em;line-height:.78;
+    float:left;color:var(--clay);
+    padding:.05em .14em 0 0;
+  }
+  .ed-body p{color:var(--ink-soft);font-size:1.02rem;line-height:1.75}
+
+  /* DARK SLAB */
+  .slab{
+    background:var(--ink);color:var(--paper);
+    padding:clamp(3.6rem,7vw,6rem) clamp(1.25rem,4vw,3rem);
+    position:relative;overflow:hidden;
+  }
+  .slab::before{
+    content:"";position:absolute;inset:-30% -10% auto auto;
+    width:60rem;height:60rem;border-radius:50%;
+    background:radial-gradient(circle at center, rgba(184,92,44,.16), transparent 55%);
+    pointer-events:none;
+  }
+  .slab-inner{
+    max-width:80rem;margin:0 auto;
+    display:grid;gap:clamp(2.2rem,4vw,3.5rem);grid-template-columns:1fr;
+    position:relative;
+  }
+  @media (min-width:60rem){.slab-inner{grid-template-columns:1.1fr 1fr;align-items:end}}
+  .slab h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2.6rem,5.6vw,4.8rem);
+    color:var(--paper);line-height:.95;letter-spacing:-.02em;
+  }
+  .slab h2 em{font-style:italic;font-weight:400;color:var(--clay-2)}
+  .addr-card{
+    border-left:1.5px solid var(--brass);
+    padding:.3rem 0 .3rem 1.8rem;
+  }
+  .addr-card .label{
+    font-family:var(--body);font-weight:500;
+    font-size:.7rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--brass);
+    margin-bottom:1.2rem;
+  }
+  .addr-card .addr{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(1.15rem,1.7vw,1.45rem);
+    line-height:1.75;color:var(--paper);
+    margin:0 0 1.6rem;
+  }
+  .addr-card .name{font-weight:700;letter-spacing:.02em;display:block;margin-bottom:.35rem}
+  .addr-card .pc{color:var(--brass);font-weight:700;letter-spacing:.08em}
+  .addr-card .map{
+    display:inline-flex;align-items:center;gap:.7rem;
+    font-family:var(--body);font-size:.78rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--paper);font-weight:600;
+    border-bottom:1px solid var(--brass);
+    padding-bottom:.35rem;
+  }
+  .addr-card .map:hover{color:var(--clay-2);border-color:var(--clay-2)}
+  .addr-card .map svg{width:1rem;height:.65rem;flex-shrink:0}
+
+  /* SCROLL REVEAL */
+  @supports (animation-timeline: view()) {
+    .reveal{
+      animation:rise both;
+      animation-timeline:view();
+      animation-range:entry 0% cover 35%;
+    }
+    @keyframes rise{
+      from{opacity:0;transform:translateY(1.4rem)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  }
+
+  /* FOOTER */
+  footer{
+    padding:clamp(2rem,5vw,3rem) clamp(1.25rem,4vw,3rem);
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem;
+    font-family:var(--body);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink-soft);font-weight:500;
+    border-top:1px solid rgba(42,26,15,.18);
+  }
+  footer .quiet{font-family:var(--display);font-style:italic;font-weight:400;text-transform:none;letter-spacing:.005em;color:var(--clay);font-size:.95rem}
+
+  @media (prefers-reduced-motion: reduce){
+    .amp::before, .amp::after, .marquee__track{animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hairline">
+  <span class="mark">Akbar &amp; Sons</span>
+  <span>Strutt Street · Normanton</span>
+  <span class="post">DE23 8FF</span>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="est">Family-run corner shop, Normanton</div>
+    <h1 class="wordmark">
+      <span class="row-1">Akbar</span>
+      <span class="row-2"><span class="amp" aria-hidden="true">&amp;</span><span>Sons</span></span>
+    </h1>
+  </div>
+  <dl class="letterhead reveal">
+    <dt>Street</dt>
+    <dd>19 Strutt Street</dd>
+    <dt>Area</dt>
+    <dd>Normanton, Derby</dd>
+    <dt>Postcode</dt>
+    <dd class="postcode">DE23 8FF</dd>
+  </dl>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="set">The corner shop on Strutt Street<span class="dot"></span>Normanton, Derby<span class="dot"></span>DE23 8FF<span class="dot"></span>Groceries &amp; everyday essentials<span class="dot"></span>A small page for a real place<span class="dot"></span></span>
+    <span class="set">The corner shop on Strutt Street<span class="dot"></span>Normanton, Derby<span class="dot"></span>DE23 8FF<span class="dot"></span>Groceries &amp; everyday essentials<span class="dot"></span>A small page for a real place<span class="dot"></span></span>
+  </div>
+</div>
+
+<section class="ed">
+  <h2 class="reveal">A corner<br>shop, plainly</h2>
+  <div class="ed-body reveal">
+    <p class="lede">Tucked along Strutt Street in Normanton, Akbar &amp; Sons keeps the kind of shelves a neighbourhood actually needs — bread for the morning, milk for the tea, a tin of something for tea-time, the odd luxury for the weekend.</p>
+    <p>No rotating banner of "deals". No list of every brand on the shelf. Just a door that opens onto the street and a counter run by the family the name on the front belongs to. This page exists because the shop does — a quiet mark on the internet that points back to a real place in Derby DE23, where the lights are on most days and the basics are where they have always been.</p>
+  </div>
+</section>
+
+<section class="slab">
+  <div class="slab-inner">
+    <h2 class="reveal">Stop in.<br><em>The shop is on the corner.</em></h2>
+    <div class="addr-card reveal">
+      <div class="label">Find us</div>
+      <p class="addr">
+        <span class="name">Akbar &amp; Sons</span>
+        19 Strutt Street<br>
+        Normanton<br>
+        Derby <span class="pc">DE23 8FF</span>
+      </p>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Akbar+%26+Sons+19+Strutt+Street+Derby+DE23+8FF" target="_blank" rel="noopener">
+        Open in Google Maps
+        <svg viewBox="0 0 24 10" aria-hidden="true"><path d="M0 5h22M18 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span>MMXXVI</span> Akbar &amp; Sons · Derby DE23</span>
+  <span class="quiet">A small page for a real shop.</span>
+  <span>Normanton</span>
+</footer>
+
+</body>
+</html>
